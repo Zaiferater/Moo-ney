@@ -6,7 +6,7 @@ Moo-ney 把小牛的叫声 **Moo** 和 **Money** 拼在一起。填写月薪和�
 
 ## 下载与运行
 
-前往 [Releases 下载正式版](https://github.com/Zaiferater/Moo-ney/releases/latest)，选择 `牛马打气机-正式版.zip`，解压后双击 `牛马打气机.exe`。
+前往 [Releases 下载正式版](https://github.com/Zaiferater/Moo-ney/releases/latest)，下载 Windows ZIP 压缩包，解压后双击 `牛马打气机.exe`。
 
 已在 Windows 11 64 位环境验证。应用使用 .NET Framework，图标和动效资源已内嵌，运行时可离线使用。
 
