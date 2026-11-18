@@ -1,0 +1,22 @@
+# Local build and release output
+*.exe
+*.dll
+*.pdb
+*.zip
+.build-*/
+bin/
+obj/
+
+# Editor and temporary files
+.vs/
+*.tmp
+*.TMP
+*.bak
+*.log
+*~
+
+# User-local settings and credentials
+settings.xml
+settings.xml.bak
+.env
+.env.*
