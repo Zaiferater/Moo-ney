@@ -2,13 +2,19 @@
 
 Moo-ney 把小牛的叫声 **Moo** 和 **Money** 拼在一起。填写月薪和工作时间，就能在桌面看着收入一点点增长。
 
-一款使用 C# / WPF 编写的 Windows 桌面计时工具，带卡通打工人动效、收入估算和下班倒计时。
+一款使用 C# / WPF（Windows）与 Swift / AppKit（macOS）编写的桌面计时工具，带卡通打工人动效、收入估算和下班倒计时。
 
 ## 下载与运行
+
+### Windows
 
 前往 [Releases 下载正式版](https://github.com/Zaiferater/Moo-ney/releases/latest)，下载 Windows ZIP 压缩包，解压后双击 `牛马打气机.exe`。
 
 已在 Windows 11 64 位环境验证。应用使用 .NET Framework，图标和动效资源已内嵌，运行时可离线使用。
+
+### macOS
+
+支持 macOS 12 及以上系统（Apple Silicon / Intel），使用原生 Swift 与 AppKit 编写，运行时驻留顶部菜单栏且不占用 Dock 栏，无第三方依赖，可离线使用。除完整复刻 Windows 版功能外，还支持拖拽悬浮窗右下角/边缘自由等比缩放（`70%–200%`）以及自选系统已安装字体。目前可通过下方「从源码构建」一键生成 `牛马打气机.app` 并双击运行。
 
 首次启动会打开设置页。填写月薪、上下班时间并保存后，下次启动直接显示计时窗。
 
@@ -45,9 +51,14 @@ Moo-ney 把小牛的叫声 **Moo** 和 **Money** 拼在一起。填写月薪和�
 
 ## 本地设置
 
-设置保存在当前 Windows 用户的 `%LOCALAPPDATA%\WorkdayTimer\settings.xml`，备份文件为同目录下的 `settings.xml.bak`。主配置丢失或损坏时，程序会尝试恢复备份。
+- Windows：`%LOCALAPPDATA%\WorkdayTimer\settings.xml`
+- macOS：`~/Library/Application Support/WorkdayTimer/settings.xml`
+
+备份文件为同目录下的 `settings.xml.bak`。主配置丢失或损坏时，程序会尝试恢复备份。
 
 ## 从源码构建
+
+### Windows
 
 在安装了 .NET Framework 编译器和 WPF 程序集的 Windows 环境中，使用 PowerShell 进入项目目录后运行。
 
@@ -62,3 +73,21 @@ Moo-ney 把小牛的叫声 **Moo** 和 **Money** 拼在一起。填写月薪和�
 ```
 
 构建脚本使用系统目录中的 .NET Framework C# 编译器，编译时会内嵌 `app.ico` 和 `Mascots` 下的角色资源。
+
+### macOS
+
+在安装了 Xcode Command Line Tools 的 macOS 环境中，进入项目目录后运行：
+
+```bash
+./macos/build.sh
+```
+
+默认在项目目录生成 `牛马打气机.app`。构建脚本直接复用根目录的 `app.ico` 和 `Mascots` 角色资源，无需额外依赖。也支持以下参数：
+
+```bash
+# 运行核心计薪与配置持久化单元测试并构建
+./macos/build.sh --test
+
+# 构建通用二进制（Apple Silicon + Intel）并指定输出路径
+./macos/build.sh --universal --output /tmp/牛马打气机.app
+```

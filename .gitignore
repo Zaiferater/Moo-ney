@@ -3,12 +3,16 @@
 *.dll
 *.pdb
 *.zip
+*.app/
+*.dmg
 .build-*/
+macos/.build/
 bin/
 obj/
 
 # Editor and temporary files
 .vs/
+.DS_Store
 *.tmp
 *.TMP
 *.bak
